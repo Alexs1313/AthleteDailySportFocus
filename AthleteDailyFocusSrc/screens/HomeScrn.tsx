@@ -131,12 +131,15 @@ const HomeScrn: React.FC = () => {
 
   useFocusEffect(
     useCallback(() => {
-      if (athleteFocusOpenVisible || athleteFocusAddVisible) {
+      if (
+        Platform.OS === 'android' &&
+        (athleteFocusAddVisible || athleteFocusOpenVisible)
+      ) {
         Orientation.lockToPortrait();
       }
 
       return () => Orientation.unlockAllOrientations();
-    }, []),
+    }, [athleteFocusAddVisible, athleteFocusOpenVisible]),
   );
 
   const athleteFocusLoadAll = async () => {
@@ -663,6 +666,7 @@ const athleteFocusContainer = {
   flex: 1,
   paddingHorizontal: 18,
   paddingTop: 80,
+  paddingBottom: 150,
 };
 
 const athleteFocusHeader = {

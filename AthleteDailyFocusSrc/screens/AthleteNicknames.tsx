@@ -108,12 +108,12 @@ const AthleteNicknames: React.FC = () => {
 
   useFocusEffect(
     useCallback(() => {
-      if (athleteFocusResultVisible) {
+      if (Platform.OS === 'android' && athleteFocusResultVisible) {
         Orientation.lockToPortrait();
       }
 
       return () => Orientation.unlockAllOrientations();
-    }, []),
+    }, [athleteFocusResultVisible]),
   );
 
   const athleteFocusLoadHistory = async () => {
@@ -230,6 +230,7 @@ const AthleteNicknames: React.FC = () => {
         <View
           style={[
             athleteFocusContainer,
+            { paddingBottom: 150 },
             Platform.OS === 'android' &&
               athleteFocusResultVisible && { filter: 'blur(6px)' },
           ]}
@@ -380,7 +381,7 @@ export default AthleteNicknames;
 const athleteFocusContainer = {
   flex: 1,
   paddingHorizontal: 18,
-  paddingTop: 90,
+  paddingTop: 80,
 };
 
 const athleteFocusWaitWrap = {

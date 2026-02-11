@@ -224,6 +224,7 @@ const athleteFocusContainer = {
   flex: 1,
   paddingHorizontal: 18,
   paddingTop: 70,
+  paddingBottom: 30,
 };
 
 const athleteFocusHeader = {

@@ -428,6 +428,7 @@ const athleteFocusContainer = {
   flex: 1,
   paddingHorizontal: 25,
   paddingTop: 80,
+  paddingBottom: 150,
 };
 
 const athleteFocusHeaderRow = {
@@ -440,7 +441,7 @@ const athleteFocusHeaderRow = {
 
 const athleteFocusTitle = {
   color: '#fff',
-  fontSize: 24,
+  fontSize: 20,
   fontFamily: 'FjallaOne-Regular',
 };
 

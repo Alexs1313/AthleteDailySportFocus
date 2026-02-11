@@ -65,8 +65,9 @@ export default InformationScreen;
 const athleteFocusContainer = {
   flex: 1,
   paddingHorizontal: 18,
-  paddingTop: 90,
+  paddingTop: 80,
   alignItems: 'center' as const,
+  paddingBottom: 150,
 };
 
 const athleteFocusTitle = {
