@@ -14,6 +14,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import ScrollLayout from '../components/ScrollLayout';
 import { BlurView } from '@react-native-community/blur';
+import Orientation from 'react-native-orientation-locker';
 
 const athleteFocusInsightTodayKey = '@insight_today';
 
@@ -127,6 +128,16 @@ const HomeScrn: React.FC = () => {
     const a = athleteFocusProfile.about?.trim();
     return a ? a : 'Tell us about you';
   }, [athleteFocusProfile.about]);
+
+  useFocusEffect(
+    useCallback(() => {
+      if (athleteFocusOpenVisible || athleteFocusAddVisible) {
+        Orientation.lockToPortrait();
+      }
+
+      return () => Orientation.unlockAllOrientations();
+    }, []),
+  );
 
   const athleteFocusLoadAll = async () => {
     try {
@@ -487,6 +498,7 @@ const HomeScrn: React.FC = () => {
           visible={athleteFocusAddVisible}
           transparent
           animationType="fade"
+          statusBarTranslucent={Platform.OS === 'android'}
         >
           {Platform.OS === 'ios' && (
             <BlurView
@@ -555,6 +567,7 @@ const HomeScrn: React.FC = () => {
         </Modal>
 
         <Modal
+          statusBarTranslucent={Platform.OS === 'android'}
           visible={athleteFocusOpenVisible}
           transparent
           animationType="fade"

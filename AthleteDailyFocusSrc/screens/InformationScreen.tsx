@@ -1,11 +1,22 @@
 import React from 'react';
-import { Image, Share, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Image,
+  Platform,
+  Share,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import ScrollLayout from '../components/ScrollLayout';
 
 const athleteFocusAppText =
-  'ZZBest Daily Sport Focus is a space for those who embrace sports as part of their daily lives. ' +
-  'The app helps you capture your thoughts after matches, track your athletic spirit, ' +
-  'find inspiration, and create your own rhythm without pressure or comparison.';
+  Platform.OS === 'ios'
+    ? 'ZZBest Daily Sport Focus is a space for those who embrace sports as part of their daily lives. ' +
+      'The app helps you capture your thoughts after matches, track your athletic spirit, ' +
+      'find inspiration, and create your own rhythm without pressure or comparison.'
+    : '22Athlete: Daily Sport Focus is a space for those who embrace sports as part of their daily lives. ' +
+      'The app helps you capture your thoughts after matches, track your athletic spirit, ' +
+      'find inspiration, and create your own rhythm without pressure or comparison.';
 
 const InformationScreen: React.FC = () => {
   const athleteFocusOnShare = async () => {
@@ -22,10 +33,17 @@ const InformationScreen: React.FC = () => {
         <Text style={athleteFocusTitle}>Information</Text>
 
         <View style={athleteFocusLogoWrap}>
-          <Image
-            source={require('../assets/images/logo.png')}
-            style={athleteFocusLogo}
-          />
+          {Platform.OS === 'ios' ? (
+            <Image
+              source={require('../assets/images/logo.png')}
+              style={athleteFocusLogo}
+            />
+          ) : (
+            <Image
+              source={require('../assets/images/icon.png')}
+              style={athleteFocusLogo}
+            />
+          )}
         </View>
 
         <Text style={athleteFocusDesc}>{athleteFocusAppText}</Text>

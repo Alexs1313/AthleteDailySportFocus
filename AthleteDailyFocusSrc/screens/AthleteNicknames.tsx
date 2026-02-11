@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   FlatList,
   Image,
@@ -15,6 +15,8 @@ import ScrollLayout from '../components/ScrollLayout';
 import { BlurView } from '@react-native-community/blur';
 import WebView from 'react-native-webview';
 import { htmlAthletesLoader } from '../constants/htmlAthletesLoader';
+import { useFocusEffect } from '@react-navigation/native';
+import Orientation from 'react-native-orientation-locker';
 
 type HistoryItemAthleteFocus = {
   id: string;
@@ -102,6 +104,16 @@ const AthleteNicknames: React.FC = () => {
   const athleteFocusCanGenerate = useMemo(
     () => athleteFocusName.trim().length > 0,
     [athleteFocusName],
+  );
+
+  useFocusEffect(
+    useCallback(() => {
+      if (athleteFocusResultVisible) {
+        Orientation.lockToPortrait();
+      }
+
+      return () => Orientation.unlockAllOrientations();
+    }, []),
   );
 
   const athleteFocusLoadHistory = async () => {
@@ -242,7 +254,13 @@ const AthleteNicknames: React.FC = () => {
           />
         </View>
       ) : (
-        <View style={athleteFocusContainer}>
+        <View
+          style={[
+            athleteFocusContainer,
+            Platform.OS === 'android' &&
+              athleteFocusResultVisible && { filter: 'blur(6px)' },
+          ]}
+        >
           <Text style={athleteFocusLabTitle}>Sport Nickname Lab</Text>
           <Text style={athleteFocusLabSub}>
             Nickname is generated for fun and inspiration.
@@ -295,6 +313,7 @@ const AthleteNicknames: React.FC = () => {
         visible={athleteFocusResultVisible}
         transparent
         animationType="fade"
+        statusBarTranslucent={Platform.OS === 'android'}
       >
         {Platform.OS === 'ios' && (
           <BlurView
@@ -529,7 +548,7 @@ const athleteFocusResultSheet = {
   borderWidth: 1,
   borderColor: '#fff',
   borderRadius: 22,
-  backgroundColor: '#FFFFFF12',
+  backgroundColor: '#FFFFFF15',
   padding: 18,
 };
 

@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import {
   Alert,
   Image,
+  Platform,
   Text,
   TextInput,
   TouchableOpacity,
@@ -106,11 +107,19 @@ const RegistrationScreen: React.FC = () => {
   return (
     <ScrollLayout>
       <View style={athleteFocusContainer}>
-        <Image
-          source={require('../assets/images/logo.png')}
-          style={athleteFocusLogo}
-          resizeMode="contain"
-        />
+        {Platform.OS === 'ios' ? (
+          <Image
+            source={require('../assets/images/logo.png')}
+            style={athleteFocusLogo}
+            resizeMode="contain"
+          />
+        ) : (
+          <Image
+            source={require('../assets/images/icon.png')}
+            style={athleteFocusLogo}
+            resizeMode="contain"
+          />
+        )}
 
         <View style={athleteFocusRow}>
           <TouchableOpacity
