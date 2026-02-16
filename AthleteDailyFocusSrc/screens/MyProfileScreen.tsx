@@ -251,15 +251,13 @@ const athleteFocusDeleteBtn = {
   marginTop: 26,
   height: 56,
   borderRadius: 999,
-  borderWidth: 1,
-  borderColor: '#F21D16',
+  backgroundColor: '#F21D16',
   alignItems: 'center' as const,
   justifyContent: 'center' as const,
-  backgroundColor: 'transparent',
 };
 
 const athleteFocusDeleteBtnText = {
-  color: '#F21D16',
+  color: '#fff',
   fontSize: 16,
   fontFamily: 'FjallaOne-Regular',
 };

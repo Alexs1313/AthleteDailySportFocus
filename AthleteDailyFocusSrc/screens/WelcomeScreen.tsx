@@ -65,8 +65,8 @@ const WelcomeScreen = () => {
             }}
           >
             <Text style={athleteFocusStyles.introTitle}>
-              Sport starts with focus Every day is a chance to stay connected to
-              sports — through moments, thoughts, and inspiration.
+              Sport grows from concentration. Every day gives you a reason to
+              stay engaged — through reflection, presence, and insight.
             </Text>
 
             <TouchableOpacity
@@ -106,12 +106,12 @@ const WelcomeScreen = () => {
 
           <Text style={[athleteFocusStyles.introTitle, { marginTop: 80 }]}>
             {athleteFocusCurrentScreenIdx === 1
-              ? `Save your thoughts after matches, track your sport mood, and keep what matters to you.`
+              ? `Record your impressions after every game, track your emotional rhythm, and save what feels important.`
               : athleteFocusCurrentScreenIdx === 2
-              ? `Find your sport name
-Enter a name and get a bold sport nickname — just for fun, style, and motivation.`
-              : `Your space. Your rhythm.
-Build your own sport routine, view your stats, and keep moving at your pace.`}
+              ? `Unlock your sport nickname.
+Add a name and get a strong, stylish title made for inspiration.`
+              : `Your space. Your flow.
+Create your own sport routine, explore your stats, and move forward at your own pace.`}
           </Text>
 
           <TouchableOpacity
