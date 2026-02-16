@@ -14,7 +14,7 @@ const athleteFocusAppText =
     ? 'ZZBest Daily Sport Focus is a space for those who embrace sports as part of their daily lives. ' +
       'The app helps you capture your thoughts after matches, track your athletic spirit, ' +
       'find inspiration, and create your own rhythm without pressure or comparison.'
-    : '22Athlete: Daily Sport Focus is a space for those who embrace sports as part of their daily lives. ' +
+    : 'Athlete Flow Journal is a space for those who embrace sports as part of their daily lives. ' +
       'The app helps you capture your thoughts after matches, track your athletic spirit, ' +
       'find inspiration, and create your own rhythm without pressure or comparison.';
 

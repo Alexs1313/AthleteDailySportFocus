@@ -85,18 +85,22 @@ const WelcomeScreen = () => {
               marginTop: 40,
             }}
           >
-            <Image source={require('../assets/images/welocmeImg1.png')} />
+            <Image
+              source={require('../assets/images/onb1.png')}
+              style={{ width: 315, height: 470 }}
+            />
           </View>
         </View>
       ) : (
         <View style={athleteFocusStyles.mainBox}>
           <Image
+            style={{ width: 315, height: 318 }}
             source={
               athleteFocusCurrentScreenIdx === 1
-                ? require('../assets/images/welocmeImg2.png')
+                ? require('../assets/images/onb2.png')
                 : athleteFocusCurrentScreenIdx === 2
-                ? require('../assets/images/welocmeImg3.png')
-                : require('../assets/images/welocmeImg4.png')
+                ? require('../assets/images/onb3.png')
+                : require('../assets/images/onb4.png')
             }
           />
 
