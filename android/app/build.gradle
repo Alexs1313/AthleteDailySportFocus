@@ -79,7 +79,7 @@ android {
 
     namespace "com.athletedailysportfocus"
     defaultConfig {
-        applicationId "com.athletedailysportfocus"
+        applicationId "com.athletedailysport"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
